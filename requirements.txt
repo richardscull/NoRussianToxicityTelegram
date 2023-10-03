@@ -1,0 +1,4 @@
+python-dotenv==1.0.0
+python-telegram-bot==20.6
+torch==2.0.1+cu117
+transformers==4.34.0
