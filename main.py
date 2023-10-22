@@ -35,8 +35,7 @@ async def leaderboard(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
             messageToSend += f"⚠️ МЕТР ТОКСИЧНОСТИ\nТекущий чат: {update.effective_chat.title}\n\n👥 Пользователи: \n"
             
-            for user_id in data[chat_id]:
-                user = data[chat_id][user_id]
+            for user_id, user in sorted(data[chat_id].items(), key=lambda item: item[1]['toxicity'], reverse=True):
                 username = await context.bot.get_chat_member(chat_id=chat_id, user_id=user_id)
                 messageToSend += f"{username.user.first_name}: {round(user['toxicity'])} 🧪 \n"
                
